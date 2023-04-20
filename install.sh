@@ -6,6 +6,8 @@
 ## install man vectors
 ##
 
-sudo mkdir /usr/local/man/man3/
+sudo mkdir -p /usr/local/man/
+sudo mkdir -p /usr/local/man/man3/
 sudo cp mans/* /usr/local/man/man3/
-echo "mans installed successfully !"
+sudo mandb
+echo -e "\n\033[1;32m[SUCCESS] \033[0mMans installed successfully"
