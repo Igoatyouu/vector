@@ -1,0 +1,70 @@
+.\" Title of the manual page
+.TH VECTOR_REMOVECHAR_AT 3 "April 12, 2023" "Version 1.0" "Vector Library By Axel"
+
+.\" Name section
+.SH NAME
+vector_removechar_at \- Removes a character at the specified index in the vector.
+
+.\" Synopsis section
+.SH SYNOPSIS
+.B #include <vector.h>
+.PP
+.B void vector_removechar_at(vector_t *vector, int index);
+
+.\" Description section
+.SH DESCRIPTION
+The function
+.B vector_removechar_at()
+removes a character at the specified index in the
+.I vector.
+This function is designed to handle vectors of characters where characters themselves are stored in the vector, rather than their addresses.
+
+.\" Parameters section
+.SH PARAMETERS
+.TP
+.B vector
+A pointer to the vector.
+.TP
+.B index
+The index of the character to be removed.
+
+.\" Return Value section
+.SH "RETURN VALUE"
+The function
+.B vector_removechar_at()
+does not return a value.
+
+.\" Example section
+.SH EXAMPLE
+Here is an example of using the `vector_removechar_at` function to remove a character from a vector of characters:
+
+.PP
+.RS
+.nf
+#include "vector.h"
+
+int main(void)
+{
+    vector_t *vector = vector_create(10, sizeof(char));
+    // Use the vector to store characters
+    // ...
+
+    vector_pushback_arr(vector, "abbcdef");
+
+    // Remove a character at a specific index in the vector
+    vector_removechar_at(vector, 1);
+
+    // Free the vector
+    vector_free(&vector);
+    return 0;
+}
+.fi
+.RE
+
+.\" See Also section
+.SH "SEE ALSO"
+.IR vector_create (3),
+.IR vector_pushback_char (3),
+.IR vector_pushback_arr (3),
+.IR vector_insertchar_at (3),
+.IR vector_insertat_arr (3)

@@ -1,0 +1,74 @@
+.\" Title of the manual page
+.TH VECTOR_INSERTAT_ARR 3 "April 12, 2023" "Version 1.0" "Vector Library By Axel"
+
+.\" Name section
+.SH NAME
+vector_insertat_arr \- Inserts a character array at the specified index in the vector.
+
+.\" Synopsis section
+.SH SYNOPSIS
+.B #include <vector.h>
+.PP
+.B void vector_insertat_arr(vector_t *vector, const char *data, int index);
+
+.\" Description section
+.SH DESCRIPTION
+The function
+.B vector_insertat_arr()
+inserts a character array at the specified index in the
+.I vector
+by copying the character data. This function is designed to handle vectors of characters where characters themselves are stored in the vector, rather than their addresses.
+
+.\" Parameters section
+.SH PARAMETERS
+.TP
+.B vector
+A pointer to the vector.
+.TP
+.B data
+The character array to be inserted into the vector.
+.TP
+.B index
+The index at which the character array should be inserted.
+
+.\" Return Value section
+.SH "RETURN VALUE"
+The function
+.B vector_insertat_arr()
+does not return a value.
+
+.\" Example section
+.SH EXAMPLE
+Here is an example of using the `vector_insertat_arr` function to insert a character array in a vector of characters:
+
+.PP
+.RS
+.nf
+#include "vector.h"
+
+int main(void)
+{
+    vector_t *vector = vector_create(10, sizeof(char));
+    // Use the vector to store characters
+    // ...
+
+    vector_pushback_arr(vector, "abefg"):
+
+    // Insert a character array at a specific index in the vector
+    const char *new_array = "cd";
+    vector_insertat_arr(vector, new_array, 2);
+
+    // Free the vector
+    vector_free(&vector);
+    return 0;
+}
+.fi
+.RE
+
+.\" See Also section
+.SH "SEE ALSO"
+.IR vector_create (3),
+.IR vector_pushback_char (3),
+.IR vector_pushback_arr (3),
+.IR vector_removechar_at (3),
+.IR vector_insertchar_at (3)

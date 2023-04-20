@@ -1,0 +1,72 @@
+.\" Title of the manual page
+.TH VECTOR_PUSHBACK_CHAR 3 "April 12, 2023" "Version 1.0" "Vector Library By Axel"
+
+.\" Name section
+.SH NAME
+vector_pushback_char \- Adds a character to the end of the vector.
+
+.\" Synopsis section
+.SH SYNOPSIS
+.B #include <vector.h>
+.PP
+.B void vector_pushback_char(vector_t *vector, char c);
+
+.\" Description section
+.SH DESCRIPTION
+The function
+.B vector_pushback_char()
+adds a character to the end of the
+.I vector
+by copying the character data. This function is designed to handle vectors of characters where characters themselves are stored in the vector, rather than their addresses.
+
+.\" Parameters section
+.SH PARAMETERS
+.TP
+.B vector
+A pointer to the vector.
+.TP
+.B c
+The character to be added to the vector.
+
+.\" Return Value section
+.SH "RETURN VALUE"
+The function
+.B vector_pushback_char()
+does not return a value.
+
+.\" Example section
+.SH EXAMPLE
+Here is an example of using the `vector_pushback_char` function to add a character to a vector of characters:
+
+.PP
+.RS
+.nf
+#include "vector.h"
+
+int main(void)
+{
+    vector_t *vector = vector_create(10, sizeof(char));
+    // Use the vector to store characters
+    // ...
+
+    // Add a character to the vector
+    char new_char = 'x';
+    vector_pushback_char(vector, new_char);
+
+    // Print the character
+    printf("%c", vector->data[0]);
+
+    // Free the vector
+    vector_free(&vector);
+    return 0;
+}
+.fi
+.RE
+
+.\" See Also section
+.SH "SEE ALSO"
+.IR vector_create (3),
+.IR vector_pushback_arr (3),
+.IR vector_removechar_at (3),
+.IR vector_insertchar_at (3),
+.IR vector_insertat_arr (3)

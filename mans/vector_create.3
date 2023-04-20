@@ -1,0 +1,66 @@
+.\" Title of the manual page
+.TH VECTOR_CREATE 3 "April 12, 2023" "Version 1.0" "Vector Library By Axel"
+
+.\" Name section
+.SH NAME
+vector_create \- Creates a new vector with a given initial capacity and element size.
+
+.\" Synopsis section
+.SH SYNOPSIS
+.B #include "vector.h"
+.PP
+.B vector_t *vector_create(int initial_capacity, int size_elem);
+
+.\" Description section
+.SH DESCRIPTION
+The function
+.B vector_create()
+creates a new vector with an initial capacity specified by
+.I initial_capacity
+and an element size specified by
+.I size_elem
+.This vector can be used for dynamically storing data.
+
+.\" Parameters section
+.SH PARAMETERS
+.TP
+.B initial_capacity
+The initial capacity of the vector.
+.TP
+.B size_elem
+The size in bytes of an element in the vector.
+
+.\" Return Value section
+.SH "RETURN VALUE"
+The function
+.B vector_create()
+returns a pointer to the newly created vector.
+
+.\" Example section
+.SH EXAMPLE
+Here is an example of using the `vector_create` function to create a vector of strings:
+
+.PP
+.RS
+.nf
+#include "vector.h"
+
+int main(void)
+{
+    vector_t *vector = vector_create(10, sizeof(char *));
+    // Use the vector to store strings
+    // ...
+
+    // Free the vector
+    vector_free(&vector);
+    return 0;
+}
+.fi
+.RE
+
+.\" See Also section
+.SH "SEE ALSO"
+.IR vector_pushback (3),
+.IR vector_at (3),
+.IR vector_popback (3),
+.IR vector_free (3)

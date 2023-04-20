@@ -1,0 +1,70 @@
+.\" Title of the manual page
+.TH VECTOR_AT 3 "April 12, 2023" "Version 1.0" "Vector Library By Axel"
+
+.\" Name section
+.SH NAME
+vector_at \- Accesses an element in the vector at a given index.
+
+.\" Synopsis section
+.SH SYNOPSIS
+.B #include <vector.h>
+.PP
+.B char *vector_at(vector_t *vector, int index);
+
+.\" Description section
+.SH DESCRIPTION
+The function
+.B vector_at()
+accesses an element in the
+.I vector
+at the
+.I index
+and returns a pointer to the element. To use the element, you need to cast the pointer to the appropriate type and dereference it.
+
+.\" Parameters section
+.SH PARAMETERS
+.TP
+.B vector
+A pointer to the vector.
+.TP
+.B index
+The index of the element to access.
+
+.\" Return Value section
+.SH "RETURN VALUE"
+The function
+.B vector_at()
+returns a pointer to the element at the specified index in the vector.
+
+.\" Example section
+.SH EXAMPLE
+Here is an example of using the `vector_at` function to access a string in a vector of strings:
+
+.PP
+.RS
+.nf
+#include "vector.h"
+
+int main(void)
+{
+    vector_t *vector = vector_create(10, sizeof(char *));
+    // Use the vector to store strings
+    // ...
+
+    // Access the string at index 3
+    char *str = *(char **)vector_at(vector, 3);
+    printf("The string at index 3 is: %s\n", str);
+
+    // Free the vector
+    vector_free(&vector);
+    return 0;
+}
+.fi
+.RE
+
+.\" See Also section
+.SH "SEE ALSO"
+.IR vector_create (3),
+.IR vector_pushback (3),
+.IR vector_popback (3),
+.IR vector_free (3)

@@ -1,0 +1,64 @@
+.\" Title of the manual page
+.TH VECTOR_POPBACK 3 "April 12, 2023" "Version 1.0" "Vector Library By Axel"
+
+.\" Name section
+.SH NAME
+vector_popback \- Removes the last element from the vector.
+
+.\" Synopsis section
+.SH SYNOPSIS
+.B #include <vector.h>
+.PP
+.B void vector_popback(vector_t *vector);
+
+.\" Description section
+.SH DESCRIPTION
+The function
+.B vector_popback()
+removes the last element from the
+.I vector
+if it contains at least one element.
+
+.\" Parameters section
+.SH PARAMETERS
+.TP
+.B vector
+A pointer to the vector.
+
+.\" Return Value section
+.SH "RETURN VALUE"
+The function
+.B vector_popback()
+does not return a value.
+
+.\" Example section
+.SH EXAMPLE
+Here is an example of using the `vector_popback` function to remove the last element from a vector of strings:
+
+.PP
+.RS
+.nf
+#include "vector.h"
+
+int main(void)
+{
+    vector_t *vector = vector_create(10, sizeof(char *));
+    // Use the vector to store strings
+    // ...
+
+    // Remove the last string from the vector
+    vector_popback(vector);
+
+    // Free the vector
+    vector_free(&vector);
+    return 0;
+}
+.fi
+.RE
+
+.\" See Also section
+.SH "SEE ALSO"
+.IR vector_create (3),
+.IR vector_pushback (3),
+.IR vector_at (3),
+.IR vector_free (3)
